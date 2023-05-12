@@ -115,11 +115,7 @@ def parse_csv_lines(csv_lines: List[str]) -> List[TableEntry]:
 
 
 def search_lines_with_token(lines: List[str], token: str) -> List[int]:
-    result = []
-    for line_index, line in enumerate(lines):
-        if token in line:
-            result.append(line_index)
-    return result
+    return [line_index for line_index, line in enumerate(lines) if token in line]
 
 
 def inject_markdown_table_into_readme(readme_lines: List[str], table_lines: List[str]) -> List[str]:
